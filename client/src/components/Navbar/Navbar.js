@@ -40,6 +40,7 @@ const Navbar = () => {
       <div className={classes.brandContainer}>
         <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Memories</Typography>
         <img className={classes.image} src={memories} alt="icon" height="60" />
+        <Button component={Link} to="/explore" variant="contained" color="primary">Explore</Button>
       </div>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
