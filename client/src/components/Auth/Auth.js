@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import Icon from './icon';
+import Icon from './Icon';
 import useStyles from "./styles";
 import Input from './Input';
 import { signin, signup } from '../../actions/auth';
