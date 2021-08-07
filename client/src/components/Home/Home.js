@@ -1,30 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
+import { Container, Grow, Grid, Modal, Backdrop, Fade } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 import { getPosts } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
-const Home = () => {
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
+const Home = (props) => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
+  
 
   return (
     <Grow in>
       <Container>
-        <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-          <Grid item xs={12} sm={7}>
+        <Container>
             <Posts setCurrentId={setCurrentId} />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
-          </Grid>
-        </Grid>
+        </Container>
+        {props.addPost ? (
+          <Modal
+            open={props.addPost} 
+            className={classes.modal}
+            onClose={props.handleAddPost} 
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }} >
+            <Fade in={props.addPost}>
+              <Container maxWidth='sm'>
+                <Form currentId={currentId} setCurrentId={setCurrentId} />
+              </Container>
+            </Fade>
+          </Modal>
+        ) : null}
       </Container>
     </Grow>
   );

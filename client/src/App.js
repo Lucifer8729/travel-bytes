@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "@material-ui/core";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -8,12 +8,19 @@ import Auth from "./components/Auth/Auth";
 import Map from "./components/Map/Map";
 
 const App = () => {
+
+  const [addPost, setAddPost] = useState(false);
+
+  const handleAddPost = () =>{
+    setAddPost((prevValue)=>(!prevValue));
+  }
+
   return (
     <BrowserRouter>
-      <Container maxidth="lg">
-        <Navbar />
+      <Container maxWidth="xl">
+        <Navbar handleAddPost={handleAddPost}/>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact render={()=>(<Home addPost={addPost} handleAddPost={handleAddPost} />)} />
           <Route path="/auth" exact component={Auth} />
           <Route path="/explore" exact component={Map} />
         </Switch>
