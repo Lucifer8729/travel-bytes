@@ -6,7 +6,6 @@ import decode from 'jwt-decode';
 
 import useStyles from "./styles";
 import memoriesLogo from "../../images/memories-Logo.png";
-import memoriesText from "../../images/memories-Text.png"
 
 const Navbar = () => {
     const classes = useStyles();
@@ -41,8 +40,7 @@ const Navbar = () => {
             <Typography component={Link} to="/" className={classes.heading} variant="h3" align="center">TRAVELbytes</Typography>
             <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
           </div>
-          
-          
+            
           <Toolbar className={classes.toolbar}>
             {user ? (
                 <div className={classes.profile}>
@@ -55,9 +53,7 @@ const Navbar = () => {
               <div>
               <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
               <Button component={Link} to="/auth" variant="contained" color="default">Sign In</Button>
-              </div>
-              
-                
+              </div>     
             )}
           </Toolbar>  
         </AppBar>
