@@ -50,7 +50,7 @@ const Post = ({ post, setCurrentId }) => {
             </div>
             <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
             <CardContent>
-                <Typography variant="body1" color="textSecondary" component="p">{`${post.message.substring(0,20)}.....`}</Typography>
+                <Typography variant="body1" color="textSecondary" component="p">{`${post.message.substring(0,40)}.....`}</Typography>
             </CardContent>
         </ButtonBase>
             <CardActions className={classes.cardActions}>
