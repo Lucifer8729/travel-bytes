@@ -32,17 +32,23 @@ export default makeStyles((theme) => ({
   },
   username: {
     color: 'grey',
+    fontFamily: 'Merriweather Sans,sans-serif'
   },
   createdAt: {
     marginBottom: '30px',
-    color: 'grey'
+    color: 'grey',
+    fontFamily: 'Merriweather Sans,sans-serif'
   },
   title: {
     marginBottom: '10px',
     color: '#066420',
+    fontFamily: 'Merriweather Sans,sans-serif',
+    fontWeight: '400'
   },
   body: {
     color: 'grey',
+    fontFamily: 'Merriweather Sans,sans-serif',
+    
   }
   
 }));

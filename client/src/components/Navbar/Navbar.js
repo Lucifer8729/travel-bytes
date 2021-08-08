@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
 import useStyles from "./styles";
-import memoriesLogo from "../../images/memories-Logo.png";
+import memoriesLogo from "../../images/logo.png";
 
 const Navbar = () => {
     const classes = useStyles();
@@ -37,14 +37,13 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
           <div to="/" className={classes.brandContainer}>
-            <Typography component={Link} to="/" className={classes.heading} variant="h3" align="center">TRAVELbytes</Typography>
-            <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
+            <Typography component={Link} to="/" className={classes.heading} variant="h4" align="center">TRAVELbytes</Typography>
+            <img className={classes.image} src={memoriesLogo} alt="icon" height="50px" />
           </div>
             
           <Toolbar className={classes.toolbar}>
             {user ? (
                 <div className={classes.profile}>
-                    <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageURL}>{user.result.name.charAt(0)}</Avatar>
                     <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
                     <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
                     <Button variant="contained" className={classes.logout} color="default" onClick={logout}>Logout</Button>

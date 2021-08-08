@@ -6,9 +6,12 @@
   "dependencies": {
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@react-google-maps/api": "^2.2.0",
     "axios": "^0.21.1",
     "cra-template": "1.1.2",
     "dotenv": "^8.2.0",
+    "google-map-react": "^2.1.10",
     "jwt-decode": "^3.1.2",
     "mapbox-gl": "^2.4.0",
     "moment": "^2.29.1",
