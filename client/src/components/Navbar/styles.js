@@ -10,9 +10,10 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px 50px',
+    backgroundColor: '#064420',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: '#e4efe7',
     textDecoration: 'none',
   },
   image: {
@@ -29,6 +30,7 @@ export default makeStyles((theme) => ({
     width: '400px',
   },
   userName: {
+    color: '#e4efe7',
     display: 'flex',
     alignItems: 'center',
   },
@@ -40,4 +42,7 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+  explore: {
+    margin: '0 15px',
+  }
 }));

@@ -27,13 +27,22 @@ export default makeStyles((theme) => ({
       marginLeft: 0,
     },
   },
-  recommendedPosts: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-    },
-  },
   loadingPaper: {
     display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',
   },
+  username: {
+    color: 'grey',
+  },
+  createdAt: {
+    marginBottom: '30px',
+    color: 'grey'
+  },
+  title: {
+    marginBottom: '10px',
+    color: '#066420',
+  },
+  body: {
+    color: 'grey',
+  }
+  
 }));

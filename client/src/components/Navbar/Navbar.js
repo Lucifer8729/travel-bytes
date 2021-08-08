@@ -6,7 +6,6 @@ import decode from 'jwt-decode';
 
 import useStyles from "./styles";
 import memoriesLogo from "../../images/memories-Logo.png";
-import memoriesText from "../../images/memories-Text.png"
 
 const Navbar = () => {
     const classes = useStyles();
@@ -37,21 +36,24 @@ const Navbar = () => {
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
-          <Link to="/" className={classes.brandContainer}>
-            <img src={memoriesText} alt="icon" height="45px"/>
+          <div to="/" className={classes.brandContainer}>
+            <Typography component={Link} to="/" className={classes.heading} variant="h3" align="center">TRAVELbytes</Typography>
             <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />
-          </Link>
-          <Button component={Link} to="/explore" variant="contained" color="primary">Explore</Button>
-          
+          </div>
+            
           <Toolbar className={classes.toolbar}>
             {user ? (
                 <div className={classes.profile}>
                     <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageURL}>{user.result.name.charAt(0)}</Avatar>
                     <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                    <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                    <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
+                    <Button variant="contained" className={classes.logout} color="default" onClick={logout}>Logout</Button>
                 </div>
             ) : (
-                <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+              <div>
+              <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
+              <Button component={Link} to="/auth" variant="contained" color="default">Sign In</Button>
+              </div>     
             )}
           </Toolbar>  
         </AppBar>
