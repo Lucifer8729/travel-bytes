@@ -15,7 +15,7 @@ const PostDetails = () => {
 
     useEffect(() => {
         dispatch(getPost(id));
-    }, [id]);
+    }, [id, dispatch]);
 
     if(!post) {
         return (

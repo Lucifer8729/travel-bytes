@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useHistory, useLocation } from "react-router-dom"
-import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
@@ -14,13 +14,13 @@ const Navbar = () => {
     const location = useLocation();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
 
-    const logout = () => {
+    const logout =useCallback(() => {
         dispatch({ type: 'LOGOUT' });
 
         history.push('/');
 
         setUser(null);
-    };
+    }, [dispatch, history]);
 
     useEffect(() => {
         const token = user?.token;
@@ -32,7 +32,7 @@ const Navbar = () => {
         }
 
         setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location, user?.token]);
+    }, [logout,location, user?.token]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
@@ -50,7 +50,6 @@ const Navbar = () => {
                 </div>
             ) : (
               <div>
-              <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
               <Button component={Link} to="/auth" variant="contained" color="default">Sign In</Button>
               </div>     
             )}
