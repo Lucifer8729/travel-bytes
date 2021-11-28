@@ -45,7 +45,7 @@ const Navbar = () => {
             {user ? (
                 <div className={classes.profile}>
                     <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                    <Button component={Link} to="/explore" variant="contained" className={classes.explore} color="default">Explore</Button>
+                   
                     <Button variant="contained" className={classes.logout} color="default" onClick={logout}>Logout</Button>
                 </div>
             ) : (
